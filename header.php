@@ -169,7 +169,28 @@ if( is_singular() ) {
 		clip: rect(0, 0, 0, 0);
 		border: 0;
 	}
-	/* hides navigation links and site footer when infinite scroll is active */
+	/* handles navigation links and site footer, including when infinite scroll is active */
+
+	nav.posts-navigation .nav-links div  { display: inline-block; margin-right: 2em;} 
+	nav.posts-navigation .nav-links div a { 
+		font-size: 1.1rem; 
+		background-color: #554a45; 
+		padding: .25rem .5rem;
+		border: 1px solid #554a45;
+		border-radius: .25rem;
+	}
+	nav.posts-navigation .nav-links div a { color: #fff; }
+	nav.posts-navigation .nav-links div a:hover { background-color: transparent; }
+	nav.posts-navigation .nav-links div a:hover { color: #554a45; }
+	nav.posts-navigation .nav-links .nav-previous a:before {
+		content: "< ";
+	}
+	nav.posts-navigation .nav-links .nav-next a:after {
+		content: " >";
+	}
+
+	/* infinite scroll replaces the above */
+	#infinite-handle span:hover { color: #554a45; background-color: transparent; }
 	.infinite-scroll .posts-navigation,
 	.infinite-scroll.neverending #footer { display: none; }
 	/* shows the footer again in case all posts have been loaded */

@@ -7,48 +7,14 @@
  * @link https://developer.wordpress.org/themes/template-files-section/page-templates/#creating-a-custom-page-template-for-one-specific-page
  *
  * @package Arguments
- */
-function displayPostsBy($type, $name, $num_results) {
-      if (strpos($type, 'cat') !== false)
-      {
-        // "cat" or "category" both OK
-        $args = array(
-            'orderby' => 'rand',
-            'post_type' => 'post',
-            'category_name' => $name,
-			'category__not_in' => array(1, 25, 193),
-            'posts_per_page' => $num_results 
+ */ 
+echo "<!-- TEMPLATE: page-home.pp -->";
+if( is_paged() ) :
+get_template_part('index'); // revert to the standard loop once "pagination" starts
 
-        );
-      }
-      else {
-        $args = array(
-            'orderby' => 'rand',
-            'post_type' => 'post',
-            'tag' => $name,
-			'category__not_in' => array(1, 25, 193),
-            'posts_per_page' => $num_results 
-        );                
-      }
-      $query = new WP_Query( $args );
-      // Check that we have query results.
-      if ( $query->have_posts() ) {
-          // Start looping over the query results.
-          while ( $query->have_posts() ) {
-              $query->the_post();
-              // Contents of the queried post results go here.
-              echo '<h4 class="article-title-smaller line-above"><a href="' . get_the_permalink() .'" rel="bookmark">' 
-                . get_the_title() .'</></h4>';
-              echo 	'<p class="byline">'. get_the_date('F Y') . '</p>';
-
-          }
-      }
-      // Restore original post data.
-      wp_reset_postdata();
-} 
-// consider doing this: http://stackoverflow.com/questions/9910791/how-to-query-the-number-of-view-counts-for-a-post-in-wordpress-jetpack
+else : // not "paginated," so show the unique "home" page of articles
 get_header(); ?>     
-<!-- TEMPLATE: page-home.php -->
+<!-- TEMPLATE: page-home.php (non-paginated) -->
 <style>
 #top-article { padding-bottom: 1.5rem; }
 #category-articles { margin-top: 3.5rem; }
@@ -88,7 +54,6 @@ div.highlighted-articles {
  }
 </style>
 <main id="main" class="site-main container" role="main">
-<?php if( !is_paged() ) : ?>
 	<div class="row">
 		<div id="main-article-list" class="hidden-sm-down col-sm-12 col-md-9">
 			<!-- the listing of articles and similar -->
@@ -280,7 +245,7 @@ div.highlighted-articles {
 		</aside><!-- /tall sidebar on the home page /.col -->
 	</div> <!-- /class="row" -->
 
-	<!-- MORE ARTICLES STRETCHING ACROSS THE WHOLE SCREEN -->
+	<!-- The Loop: MORE ARTICLES STRETCHING ACROSS THE WHOLE SCREEN -->
 	<section id="loop-container" class="articles-by-date row">
 		<div id="articles-by-date" class="hidden-sm-down col-12">
 			<h3 class="section-title">Articles by Date</h3>
@@ -305,22 +270,7 @@ div.highlighted-articles {
 
 		endif; 	
 		?> 
-
-
-
-		<?php //$query = new WP_Query( array(
-		//				'post_type' => 'post',
-		//				'posts_per_page' => 6, 
-		//				'post__not_in' => $check_for_duplicate_posts
-		//			) );
-		//while ($query->have_posts()) : $query->the_post(); ?>
-			
-
-
-		<?php //$check_for_duplicate_posts[] = $post->ID;
-		//endwhile; wp_reset_postdata(); // Restore original Post Data ?>
-	</section><!-- /#medium-articles-->
-<?php endif; // the next displays always, even if we're "paginated" ?>
+	</section><!-- /.row /#loop-container /.articles-by-date  -->
 
 	<!-- <section id="list-compact-max" class="compact-max-articles row"> -->
 		<!-- ************** -->
@@ -380,3 +330,47 @@ div.highlighted-articles {
 
 <?php
 get_footer();
+endif; // end of pagination check
+
+
+/////////////////////////////////////////////////////
+function displayPostsBy($type, $name, $num_results) {
+      if (strpos($type, 'cat') !== false)
+      {
+        // "cat" or "category" both OK
+        $args = array(
+            'orderby' => 'rand',
+            'post_type' => 'post',
+            'category_name' => $name,
+			'category__not_in' => array(1, 25, 193),
+            'posts_per_page' => $num_results 
+
+        );
+      }
+      else {
+        $args = array(
+            'orderby' => 'rand',
+            'post_type' => 'post',
+            'tag' => $name,
+			'category__not_in' => array(1, 25, 193),
+            'posts_per_page' => $num_results 
+        );                
+      }
+      $query = new WP_Query( $args );
+      // Check that we have query results.
+      if ( $query->have_posts() ) {
+          // Start looping over the query results.
+          while ( $query->have_posts() ) {
+              $query->the_post();
+              // Contents of the queried post results go here.
+              echo '<h4 class="article-title-smaller line-above"><a href="' . get_the_permalink() .'" rel="bookmark">' 
+                . get_the_title() .'</></h4>';
+              echo 	'<p class="byline">'. get_the_date('F Y') . '</p>';
+
+          }
+      }
+      // Restore original post data.
+      wp_reset_postdata();
+} 
+
+// consider doing this: http://stackoverflow.com/questions/9910791/how-to-query-the-number-of-view-counts-for-a-post-in-wordpress-jetpack
