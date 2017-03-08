@@ -1,0 +1,141 @@
+// Bootstrap overrides
+//
+// Copy variables from `_variables.scss` to this file to override default values
+// without modifying source files.
+//
+
+// Table of Contents:
+// * Colors
+// * Body
+// * Links
+// * Fonts
+// * Buttons
+// * Custom
+// * Other Definitions Imported From Elsewhere
+
+// General variable structure
+//
+// Variable format should follow the `$component-modifier-state-property` order.
+
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+// Start with assigning color names to specific hex values.
+$white:  #fff ;
+$black:  #090000 ; // brown-almost-black is the new black
+$brown:  #554a45 ; // a quite dark brown
+$red:    #733e26 ; // reddish-brown
+$orange: #bf6840 ; // orange-brown
+$yellow: #f2e1d9 ; // yellow with a bit of brown
+$green:  #5cb85c ;
+$blue:   #475444 ; // complement to 554A45 -- blueish with brown
+$teal:   #008080 ;
+$pink:   #993000 ;
+$purple: #6b412e ;
+
+// Create "brownscale" (formerly grayscale)
+$gray-dark:                 darken($gray, 15%) ;
+$gray:                      $brown ;
+$gray-light:                lighten($gray, 15%) ;
+$gray-lighter:              lighten($gray-light, 15%) ;
+$gray-lightest:             lighten($gray-lighter, 15%) ;
+
+// Reassign color vars to improved color scheme, sometimes semantic
+$brand-primary:             $brown  ;
+$brand-success:             $green ;
+$brand-info:                $teal  ;
+$brand-warning:             $orange;
+$brand-danger:              $red   ;
+$brand-inverse:             $gray-dark ;
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:       $white ;
+$body-color:    $gray ;
+$inverse-bg:    $gray-dark ;
+$inverse-color: $gray-lighter ;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:            $red ;
+$link-decoration:       none ;
+$link-hover-color:      darken($link-color, 15%) ;
+$link-hover-decoration: underline ;
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif ;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif ;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ;
+$font-family-base:       $font-family-sans-serif ;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background and border color.
+$btn-primary-color:              $white ;
+$btn-primary-bg:                 $brand-primary ;
+$btn-primary-border:             $btn-primary-bg ;
+
+$btn-secondary-color:            $gray-dark ;
+$btn-secondary-bg:               $white ;
+$btn-secondary-border:           $gray-dark;
+
+$btn-info-color:                 $white ;
+$btn-info-bg:                    $brand-info ;
+$btn-info-border:                $btn-info-bg ;
+
+$btn-success-color:              $white ;
+$btn-success-bg:                 $brand-success ;
+$btn-success-border:             $btn-success-bg ;
+
+$btn-warning-color:              $white ;
+$btn-warning-bg:                 $brand-warning ;
+$btn-warning-border:             $btn-warning-bg ;
+
+$btn-danger-color:               $white ;
+$btn-danger-bg:                  $brand-danger ;
+$btn-danger-border:              $btn-danger-bg ;
+
+$btn-link-disabled-color:        $gray-light ;
+
+// Custom
+.sans-serif { font-family: $font-family-sans-serif; }
+article, .serif { font-family: $font-family-serif; }
+article h1, article h2, article h3, article h4, article h5, article h6 
+	{ font-family: $font-family-base; }
+
+// Other Definitions Imported From Elsewhere
+
+// from utilities/flex
+.flex-first {
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1;
+}
+
+.flex-last {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.flex-unordered {
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+      -ms-flex-order: 0;
+          order: 0;
+}
+//
