@@ -67,6 +67,8 @@ if( is_singular() ) {
 	 }
 	.rotate-90 { transform: rotate(90deg); }
 	.display-none { display:none; }
+	.alignright { float: right; }
+	.alignleft { float: left; }
 	/**** **
 		* Articles:
 		* Global changes to anything under the <article> element
@@ -133,15 +135,33 @@ if( is_singular() ) {
 	article.list .categories:hover { opacity: 1; }
 	/**** **
 		* Sidebar:
-		* the sidebar itself and titles of widgets in sidebar areas
+		* classes for various sidebars (.sidebar, .sidebar-list, etc.)
 		*/
-	aside#sidebar { 
+	aside.sidebar p,
+		aside.sidebar p,
+		aside.sidebar h5,
+		aside.sidebar li { 
+		font-size: 0.9rem;
+		line-height: 1.1rem;
+		font-weight: 300;
+	}
+	aside.sidebar ul { list-style: none; margin: 0; padding: 0;} 
+	aside.sidebar ul li { padding: 5px 0; }	
+	aside.sidebar-singular-item,
+		aside.sidebar-list { 
 		margin-top: 2.45rem; 
 		padding-left: 1rem;
 		border-left: 1px solid rgba(85, 74, 69, 0.2);
-		font-size: 90%;
-		line-height: 1.1rem;
 	}
+	/*
+	aside.sidebar-list ul li { border-bottom: 1px solid rgba(85, 74, 69, 0.2); padding-bottom: .5rem; margin-bottom: .5rem; }
+	aside.sidebar-list ul li:last-child { border-bottom: none; padding-top: 0; margin-top: 0; }
+	*/
+	/**** **
+		* Widgets:
+		* classes for various sidebars (.sidebar, .sidebar-list, etc.)
+		*/
+	/* classes for widgets (usually in sidebars, but not necessarily) */	
 	aside .widget { margin-bottom: 2rem; }
 	aside .widget-title,
 		.section-title {
@@ -239,6 +259,38 @@ if( is_singular() ) {
     .navigation span.nav-title a { color: #554a45; }
     .navigation span.nav-title a:hover { color: #733e26; }
 
+	/* see also additions */
+	div.ijrp { width: 100%; margin-left: -.5rem; margin-right:-.5rem; }
+	div.ijrp a.ijrp-link {
+		display: block;
+		font-size: .8rem;
+		color: rgba(85,74,69,1);
+		background-color: rgba(85,74,69,.2);
+		margin-top: 1.3rem;
+		margin-bottom: 1.3rem;
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+		padding-left: .5rem;
+		padding-right: .5rem;
+		border: 1px solid rgba(85,74,69,.2);
+		border-left: .5rem solid rgba(139,0,0,1);
+	}
+	div.ijrp a.ijrp-link:hover {
+		text-decoration: none;
+		color: rgba(255,255,255,1);
+		background-color: rgba(139,0,0,1);
+		border: 1px solid rgba(139,0,0,1);	
+		border-left: .5rem solid rgba(139,0,0,1);
+	}
+	div.ijrp a.ijrp-link span.ijrp-first:before {
+		font-style: italic;
+		color: rgba(85,74,69,.75);
+		font-weight: 700;
+		content: 'See also:  ';
+	}
+	div.ijrp a.ijrp-link:hover span.ijrp-first:before {
+		color: rgba(255,255,255,.75);
+	}
 
 </style>
 

@@ -56,3 +56,4 @@ function arguments_infinite_scroll_render() {
 		endif;
 	endwhile;
 }
+
