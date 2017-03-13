@@ -48,11 +48,11 @@ get_header(); ?>
 
 	<?php // do we have any active sidebars? ?>
 	<?php if ( is_active_sidebar( 'sidebar-singular-item' ) && is_singular() ) : ?>
-		<aside id="sidebar" class="hidden-sm-down col-md-4" role="complementary">
+		<aside class="sidebar sidebar-singular-item hidden-sm-down col-md-4" role="complementary">
 			<?php dynamic_sidebar( 'sidebar-singular-item' ); ?>
 		</aside>
 	<?php elseif ( is_active_sidebar( 'sidebar-list' ) ) : ?>
-		<aside id="sidebar" class="hidden-sm-down col-md-4" role="complementary">
+		<aside class="sidebar sidebar-list hidden-sm-down col-md-4" role="complementary">
 			<?php dynamic_sidebar( 'sidebar-list' ); ?>
 		</aside>
 	<?php endif; ?>

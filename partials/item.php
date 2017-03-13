@@ -15,8 +15,8 @@
 		margin-top: 2rem;
 		padding-right: 1rem;
 	}
-	aside .widget { opacity: 0.33; transition-timing-function: ease-in-out;}
-	aside .widget:hover { opacity: 0.66; transition-timing-function: ease-in-out; }
+	aside .widget { opacity: 0.5; transition-timing-function: ease-in-out;}
+	aside .widget:hover { opacity: 0.9; transition-timing-function: ease-in-out; }
 </style>
 
 

@@ -118,7 +118,7 @@ div.highlighted-articles {
 
 				<!-- +SIDEBAR COLUMN: Magazine Home Thin Widget Area (hidden at smaller sizes) -->
 				<?php if ( is_active_sidebar( 'sidebar-home-short' ) ) : ?>
-					<aside class="col-md-4 hidden-sm-down" role="complementary">
+					<aside class="sidebar sidebar-home-short col-md-4 hidden-sm-down" role="complementary">
 						<?php dynamic_sidebar( 'sidebar-home-short' ); ?>
 					</aside><!-- /col-sm-3 -->
 				<?php endif; ?>   
@@ -238,7 +238,7 @@ div.highlighted-articles {
 
 		</div><!-- /.col /#main-article-list / END of article listings -->
 		<!-- tall sidebar on the home page -->
-		<aside class="hidden-sm-down col-md-3" role="complementary"> 
+		<aside class="sidebar sidebar-home-tall hidden-sm-down col-md-3" role="complementary"> 
 			<?php if ( is_active_sidebar( 'sidebar-home-tall' ) ) : ?>
 				<?php dynamic_sidebar( 'sidebar-home-tall' ); ?>
 			<?php endif; ?>
