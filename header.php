@@ -138,25 +138,31 @@ if( is_singular() ) {
 		* classes for various sidebars (.sidebar, .sidebar-list, etc.)
 		*/
 	aside.sidebar p,
-		aside.sidebar p,
 		aside.sidebar h5,
 		aside.sidebar li { 
-		font-size: 0.9rem;
-		line-height: 1.1rem;
-		font-weight: 300;
+		font-size: 0.8rem;
+		line-height: 1rem;
+		font-weight: 500;
 	}
 	aside.sidebar ul { list-style: none; margin: 0; padding: 0;} 
-	aside.sidebar ul li { padding: 5px 0; }	
+	aside.sidebar ul li { 
+		padding: 5px 0;
+		padding-bottom: .33rem; 
+		margin-bottom: .33rem; 
+		border-bottom: 1px solid rgba(85, 74, 69, 0.2); 
+	}
+	aside.sidebar ul li:last-child { 
+		padding-top: 0; 
+		margin-top: 0; 
+		border-bottom: none; 
+	}
+
 	aside.sidebar-singular-item,
 		aside.sidebar-list { 
 		margin-top: 2.45rem; 
 		padding-left: 1rem;
 		border-left: 1px solid rgba(85, 74, 69, 0.2);
 	}
-	/*
-	aside.sidebar-list ul li { border-bottom: 1px solid rgba(85, 74, 69, 0.2); padding-bottom: .5rem; margin-bottom: .5rem; }
-	aside.sidebar-list ul li:last-child { border-bottom: none; padding-top: 0; margin-top: 0; }
-	*/
 	/**** **
 		* Widgets:
 		* classes for various sidebars (.sidebar, .sidebar-list, etc.)
