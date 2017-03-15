@@ -45,12 +45,12 @@
 	<div id="header-logo" class="logo col-sm-12 col-md-2">
 		<?php 
 		if ( has_site_icon() ) :
-			if (class_exists('Jetpack_Photon') ) { $photon_removed = remove_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ) ); } 
+			//if (class_exists('Jetpack_Photon') ) { $photon_removed = remove_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ) ); } 
 		?>
 			<a href="<?= esc_url(home_url('/')); ?>"><img height="150" width="150" src="<?php site_icon_url('150') ?>" 
 				alt="<?php bloginfo('name'); ?>" /></a>
 		<?php
-			if ( $photon_removed ) { add_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ), 10, 3 ); }
+			//if ( $photon_removed ) { add_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ), 10, 3 ); }
 		endif; // end has_site_icon() ?>
 	</div><!-- /#header-logo -->
 	<div id="header-title" class="col-sm-12 col-md-8">

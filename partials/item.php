@@ -19,7 +19,6 @@
 	aside .widget:hover { opacity: 0.9; transition-timing-function: ease-in-out; }
 </style>
 
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 	<div class="entry-content">
 		<?php

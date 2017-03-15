@@ -68,10 +68,10 @@
       <a href="<?= esc_url(home_url('/')); ?>" >
       <?php 
         if ( has_site_icon() ) :
-            if (class_exists('Jetpack_Photon') ) { $photon_removed = remove_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ) ); } ?>
+            //if (class_exists('Jetpack_Photon') ) { $photon_removed = remove_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ) ); } ?>
                   <img class="site-icon-small" height="30" width="30" src="<?php site_icon_url('30') ?>" 
                         alt="<?php bloginfo('name'); ?>" style="display:inline-block;" /><?php
-            if ( $photon_removed ) { add_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ), 10, 3 ); }
+            //if ( $photon_removed ) { add_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ), 10, 3 ); }
         endif; // end has_site_icon() ?>
         &nbsp;<?php bloginfo( 'name' ); ?>
       </a>
