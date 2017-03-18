@@ -24,6 +24,11 @@ if( is_singular() ) {
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
+<!-- anticipatory DNS prefetches -->
+<link rel="dns-prefetch" href="//stats.eluci.date">
+<link rel="dns-prefetch" href="//ssl.google-analytics.com">
+<link rel="dns-prefetch" href="//platform.twitter.com">
+<link rel="dns-prefetch" href="//secure.gravatar.com">
 <?php wp_head(); ?>
 </head>
 
