@@ -25,9 +25,13 @@ if( is_singular() ) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <!-- anticipatory DNS prefetches -->
+<link rel="dns-prefetch" href="//ajax.cloudflare.com">
 <link rel="dns-prefetch" href="//stats.eluci.date">
 <link rel="dns-prefetch" href="//ssl.google-analytics.com">
-<link rel="dns-prefetch" href="//secure.gravatar.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//pixel.wp.com">
+<link rel="dns-prefetch" href="//pixel.quantserve.com">
+<link rel="dns-prefetch" href="//cc.swiftype.com">
 <?php wp_head(); ?>
 </head>
 
