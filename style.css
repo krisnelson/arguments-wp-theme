@@ -4,7 +4,7 @@ Theme URI: https://inpropriapersona.com
 Author: Kristopher Nelson
 Author URI: https://krisnelson.org
 Description: A modified _s and Bootstrap 4 theme.
-Version: 1.0.0
+Version: 1.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: arguments
@@ -19,3 +19,273 @@ arguments is based on Underscores http://underscores.me/, (C) 2012-2016 Automatt
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 */
+/**** **
+	* Elements:
+	* make global changes to HTML elements
+	*/
+/* make <blockquote> fit in better */
+blockquote {
+	margin-left: 1.5rem;
+	margin-right: 0.5rem;
+	font-size: 90%; 
+}
+/**** **
+	* Global utilities:
+	* extra classes for adding stuff
+	*/
+/* allow for inclusion of SVG icons */
+.icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.icon-lg {
+	width: 1.33rem;
+	height: 1.33rem;
+}
+/* allow for a quick line above or below something */
+.line-above { border-top: 1px solid rgba(85, 74, 69, 0.2); }
+.line-below { border-bottom: 1px solid rgba(85, 74, 69, 0.2); }
+/* "byline" is also used for date elements in article and article listings */
+.byline,
+	.byline a {
+	color: rgba(85,74,69,.66);
+	font-size: 0.6rem;
+	letter-spacing: .02rem;
+	font-weight: 500;
+ }
+.rotate-90 { transform: rotate(90deg); }
+.display-none { display:none; }
+.alignright { float: right; }
+.alignleft { float: left; }
+/**** **
+	* Articles:
+	* Global changes to anything under the <article> element
+	*/
+/* make the article font size a big bigger of smaller screens */
+@media (max-width: 575px) {
+  article {
+	font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  article {
+	font-size: 1.3rem;
+  }
+}
+/* classes for lists and compact lists of articles */
+article.list {
+	hyphens: auto;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+}
+article.list-compact {
+	margin-bottom: 2rem;
+}
+article.list-compact h4 { font-size: 1rem; font-weight: 600;}
+article.list-compact-max h4 { font-size: .8rem; padding-top: .8rem ;}
+article.list img.thumbnail {
+	float: left;
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
+	margin-left: 0;
+	margin-right: 0.8rem;
+}
+article.list .categories,
+	article.list-compact .categories { 
+	color: rgba(85,74,69,.66);
+	font-size: 0.6rem;
+	letter-spacing: .05rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin-top: .5rem;
+	margin-bottom: .1rem;
+}
+article.list .categories a,
+	article.list-compact .categories a {
+	color: rgba(85,74,69,.66);
+}
+article.list .byline {
+	color: rgba(85,74,69,.66);
+	font-size: 0.6rem;
+	letter-spacing: .04rem;
+	font-weight: 300;
+	margin-top: -.3rem;
+	padding-right: 2rem;
+}
+article.list-compact-max .byline {
+	color: rgba(85,74,69,.66);
+	font-size: 0.6rem;
+	letter-spacing: .04rem;
+	font-weight: 300;
+	margin-top: -.3rem;
+ }
+article.list .categories { opacity: .66; }
+article.list .categories:hover { opacity: 1; }
+/**** **
+	* Sidebar:
+	* classes for various sidebars (.sidebar, .sidebar-list, etc.)
+	*/
+aside.sidebar p,
+	aside.sidebar h5,
+	aside.sidebar li { 
+	font-size: 0.8rem;
+	line-height: 1rem;
+	font-weight: 500;
+}
+aside.sidebar ul { list-style: none; margin: 0; padding: 0;} 
+aside.sidebar ul li { 
+	padding: 5px 0;
+	padding-bottom: .33rem; 
+	margin-bottom: .33rem; 
+	border-bottom: 1px solid rgba(85, 74, 69, 0.2); 
+}
+aside.sidebar ul li:last-child { 
+	padding-top: 0; 
+	margin-top: 0; 
+	border-bottom: none; 
+}
+
+aside.sidebar-singular-item,
+	aside.sidebar-list { 
+	margin-top: 2.45rem; 
+	padding-left: 1rem;
+	border-left: 1px solid rgba(85, 74, 69, 0.2);
+}
+/**** **
+	* Widgets:
+	* classes for various sidebars (.sidebar, .sidebar-list, etc.)
+	*/
+/* classes for widgets (usually in sidebars, but not necessarily) */	
+aside .widget { margin-bottom: 2rem; }
+aside .widget-title,
+	.section-title {
+	color: rgba(85,74,69,.66);
+	font-size: .85rem;
+	letter-spacing: .06rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	padding-bottom: .2rem;
+	border-bottom: 1px solid rgba(85, 74, 69, 0.2);  
+}
+aside .widget-title a,
+	.section-title a { color: rgba(85,74,69,.66); }
+/**** **
+	* For "infinite scroll":
+	* default "post navigation" WP adds uses the following (Bootstrap uses .sr-only)
+	*/
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+/* handles navigation links and site footer, including when infinite scroll is active */
+
+nav.posts-navigation .nav-links div  { display: inline-block; margin-right: 2em;} 
+nav.posts-navigation .nav-links div a { 
+	font-size: 1.1rem; 
+	background-color: #554a45; 
+	padding: .25rem .5rem;
+	border: 1px solid #554a45;
+	border-radius: .25rem;
+}
+nav.posts-navigation .nav-links div a { color: #fff; }
+nav.posts-navigation .nav-links div a:hover { background-color: transparent; }
+nav.posts-navigation .nav-links div a:hover { color: #554a45; }
+nav.posts-navigation .nav-links .nav-previous a:before {
+	content: "< ";
+}
+nav.posts-navigation .nav-links .nav-next a:after {
+	content: " >";
+}
+
+/* infinite scroll replaces the above */
+#infinite-handle span:hover { color: #554a45; background-color: transparent; }
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending #footer { display: none; }
+/* shows the footer again in case all posts have been loaded */
+.infinity-end.neverending #footer { display: block; }
+#infinite-handle { margin-left: 33vw; }
+#infinite-handle span { 
+	font-size: 1.4rem; 
+	background-color: #554a45; 
+	padding: 1rem 1.5rem;
+	border: 1px solid #554a45;
+	border-radius: .25rem;
+}
+#infinite-handle span:hover { color: #554a45; background-color: transparent; }
+/**** **
+	* Navigation:
+	* a very simple system for horizontal navigation
+	*  - inspired roughly by: http://css-snippets.com/simple-horizontal-navigation/
+	*  - colors, etc. should then be adjusted for the specific nav area
+	*  - by default, the nav ends up stacked vertically on smaller screens
+	*  - media queries, etc. can be used to put in a menu bar button and hide the nav instead
+	*/	
+.navigation span.nav-title { 
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.015rem;
+}
+.navigation ul.nav-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.navigation ul.nav-list li {
+  display: inline-block;
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+} 
+.navigation ul.nav-list li a { display: block; color: #554a45; text-decoration: none;} 
+.navigation ul.nav-list li a:hover { color: #733e26; text-decoration: underline;}     
+/* toggler icon (heaven trigram) */
+.nav-toggler { display: inline-block; color: #554a45;}
+.nav-toggler-icon:before { content:'\2630'; }
+
+/* customize these colors as necessary for specific nav area */
+.navigation span.nav-title { display: inline-block; font-size: 1.1rem; letter-spacing: 0.015rem; font-weight: 600; }
+.navigation span.nav-title a { color: #554a45; }
+.navigation span.nav-title a:hover { color: #733e26; }
+
+/* see also additions */
+div.ijrp { width: 100%; margin-left: -.5rem; margin-right:-.5rem; }
+div.ijrp a.ijrp-link {
+	display: block;
+	font-size: .8rem;
+	color: rgba(85,74,69,1);
+	background-color: rgba(85,74,69,.2);
+	margin-top: 1.3rem;
+	margin-bottom: 1.3rem;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	padding-left: .5rem;
+	padding-right: .5rem;
+	border: 1px solid rgba(85,74,69,.2);
+	border-left: .5rem solid rgba(139,0,0,1);
+}
+div.ijrp a.ijrp-link:hover {
+	text-decoration: none;
+	color: rgba(255,255,255,1);
+	background-color: rgba(139,0,0,1);
+	border: 1px solid rgba(139,0,0,1);	
+	border-left: .5rem solid rgba(139,0,0,1);
+}
+div.ijrp a.ijrp-link span.ijrp-first:before {
+	font-style: italic;
+	color: rgba(85,74,69,.75);
+	font-weight: 700;
+	content: 'See also:  ';
+}
+div.ijrp a.ijrp-link:hover span.ijrp-first:before {
+	color: rgba(255,255,255,.75);
+}
