@@ -27,7 +27,6 @@ if( is_singular() ) {
 <!-- anticipatory DNS prefetches -->
 <link rel="dns-prefetch" href="//stats.eluci.date">
 <link rel="dns-prefetch" href="//ssl.google-analytics.com">
-<link rel="dns-prefetch" href="//platform.twitter.com">
 <link rel="dns-prefetch" href="//secure.gravatar.com">
 <?php wp_head(); ?>
 </head>
