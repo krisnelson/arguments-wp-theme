@@ -39,20 +39,20 @@
     ul#menu-footer li { 
     	float:left; 
     	margin-left: 0.8rem; 
-    	margin-right: 4rem; 
+    	margin-right: 2rem; 
     } 
     ul#menu-footer li a { 
     	padding: .8rem .8rem .8rem .8rem;
     	color: rgba(255, 255, 255, 0.75);  
-       	border: 1px solid #554a45;
-	    border-radius: .25rem;
+       	/* border: 1px solid #554a45;
+	    border-radius: .25rem; */
     } 
     ul#menu-footer li a:hover { 
     	text-decoration: none;
     	color: #554a45;
     	background-color: rgba(255, 255, 255, 0.75);
-    	border: 1px solid #444;
-	    border-radius: .25rem;
+    	/* border: 1px solid #444;
+	    border-radius: .25rem; */
     }
     
 	/* #menu-footer ul > li:hover > ul { display: block; }
