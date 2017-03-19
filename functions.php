@@ -48,9 +48,10 @@ function arguments_setup() {
 	add_image_size( 'featured-small', 500, 220, array( 'center', 'center' ) );
 	add_image_size( 'medium-large', 640, 480, array( 'center', 'center' ) );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'arguments' ),
+		'Primary' => esc_html__( 'Primary', 'arguments' ),
+		'Footer' => esc_html__( 'Footer', 'arguments' ),
 	) );
 
 	/*

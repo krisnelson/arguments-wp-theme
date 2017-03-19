@@ -21,46 +21,85 @@
 		width: 100%; 
 		min-height: 8rem; 
 	}
-	#siteFooter .footer-title { 
-		font-size: 1rem;
-		color: rgba(255, 255, 255, 0.5); 
-		padding-bottom: .5rem; 
-		margin-bottom: 1rem;
-		font-weight: 300;
-	    letter-spacing: 0.08rem;
-	}
-	#siteFooter .footer-title a { color: rgba(255, 255, 255, 0.5); }
-	#siteFooter .footer-title a:hover { color: rgba(255, 255, 255, 1);  } 
-	#siteFooter .site-footer { 
-		border-top: 1px solid rgba(255, 255, 255, 0.33);
-		padding-top: 1rem;
+
+	#siteFooter .menu-footer-container { 
 		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.33);		
 	}
-	#siteFooterNav ul.nav-list { text-align: left; }
-    #siteFooterNav ul.nav-list li { margin-left: 0.8rem; margin-right: 4rem; } 
-    #siteFooterNav ul.nav-list li a { color: rgba(255, 255, 255, 0.75);  } 
-    #siteFooterNav ul.nav-list li a:hover { color: rgba(255, 255, 255, 1); }
+	
+	ul#menu-footer {
+		display: inline-block;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		text-align: left;
+	}
+    ul#menu-footer li { 
+    	float:left; 
+    	margin-left: 0.8rem; 
+    	margin-right: 4rem; 
+    } 
+    ul#menu-footer li a { 
+    	padding: .8rem .8rem .8rem .8rem;
+    	color: rgba(255, 255, 255, 0.75);  
+       	border: 1px solid #554a45;
+	    border-radius: .25rem;
+    } 
+    ul#menu-footer li a:hover { 
+    	text-decoration: none;
+    	color: #554a45;
+    	background-color: rgba(255, 255, 255, 0.75);
+    	border: 1px solid #444;
+	    border-radius: .25rem;
+    }
+    
+	/* #menu-footer ul > li:hover > ul { display: block; }
+	#menu-footer ul > li:active > ul { display: block; } 
+	#menu-footer ul > li > ul > li { float:none; }
+	#menu-footer ul > li > ul > li > a { text-align: left; } */
+    
+    
+/* 	
+<div class="menu-footer-container">
+	<ul id="menu-footer" class="menu">
+		<li id="menu-item-7378" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7378"><a href="http://ipp.chid.org/home/">Home</a></li>
+		<li id="menu-item-7380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7380"><a href="http://ipp.chid.org/about/">About</a></li>
+		<li id="menu-item-7379" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7379"><a href="http://ipp.chid.org/contact/">Contact</a></li>
+		<li id="menu-item-7392" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7392"><a href="#">Topics</a>
+			<ul class="sub-menu">
+				<li id="menu-item-7383" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7383"><a href="http://ipp.chid.org/category/history/">History</a></li>
+				<li id="menu-item-7381" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7381"><a href="http://ipp.chid.org/category/law/">Law</a></li>
+				<li id="menu-item-7382" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7382"><a href="http://ipp.chid.org/category/technology/">Technology</a></li>
+			</ul>
+		</li>
+	</ul>
+</div> 
+*/
+    
+	#siteFooter h3,
+		#siteFooter h3 a {
+			color: rgba(255, 255, 255, 0.75);
+		}
+	#siteFooter h3 a:hover {
+		color: rgba(255, 255, 255, 1);
+		text-decoration: none;	
+	}
+	#siteFooter h3 .text-muted-darkbg {
+		margin-left: 1rem;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
 </style>
 
-<footer id="siteFooter" class="site-navigation navigation" role="navigation">
-  	<span class="footer-title">More 
-		<a href="<?= esc_url(home_url('/')); ?>">
-		  <?php bloginfo( 'name' ); ?>
-		</a>
-	</span>
+<footer id="siteFooter">
+	<h3>
+		<a href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?> </a>
+		<small class="text-muted-darkbg"><?php bloginfo('description'); ?></small>
+	</h3>
 
-	<nav id="siteFooterNav" class="site-footer navigation" role="navigation">
-	    <!-- navigation itens -->
-	    <ul id="siteFooterPrimaryNavItems" class="nav-list">
-	      <li><a href="#topNav">Top</a></li>
-	      <li><a href="/about">About</a></li>
-	      <li><a href="/contact">Contact</a></li>
-	      <li><a href="http://twitter.com/krisnelson">Twitter</a></li>
-	      <li><a href="http://github.com/krisnelson">Github</a></li>
-	      <li><a href="<?php bloginfo('rss2_url'); ?>">RSS Feed</a></li>
-	    </ul>
-	</nav>
-
+	<?php wp_nav_menu( array( 'theme_location' => 'Footer' ) ); ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
 		<style>

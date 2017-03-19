@@ -105,7 +105,7 @@
 
 	<!-- <ul class="nav-hide">
 		<li><a href="#">Menu</a> -->
-			<?php wp_nav_menu( array( 'theme_location' => 'menu-1' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'Primary' ) ); ?>
 <!--		</li>
 	</ul> -->
 
