@@ -266,7 +266,7 @@ div.highlighted-articles {
 				get_template_part( 'partials/list-compact');
 			endwhile;
 
-			the_posts_navigation();
+			arguments_pagination();
 
 		endif; 	
 		?> 

@@ -6,6 +6,18 @@
  *
  * @package Arguments
  */
+if ( ! function_exists( 'arguments_pagination' ) ) :
+/**
+  * Shows pagination at the bottom of lists, the home page, etc.
+  */
+function arguments_pagination() {
+	if ( function_exists('wp_pagenavi') ) { 
+		wp_pagenavi(); 
+	}
+	else { the_posts_navigation(); }
+}
+
+endif;
 
 if ( ! function_exists( 'arguments_posted_on' ) ) :
 /**
