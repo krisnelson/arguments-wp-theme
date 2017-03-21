@@ -13,7 +13,7 @@ if( is_paged() ) :
 get_template_part('index'); // revert to the standard loop once "pagination" starts
 
 else : // not "paginated," so show the unique "home" page of articles
-get_header(); ?>     
+get_header(); ?>
 <!-- TEMPLATE: page-home.php (non-paginated) -->
 <style>
 #top-article { padding-bottom: 1.5rem; }
@@ -26,7 +26,7 @@ get_header(); ?>
 }
 /* #loop-container .compact-articles { margin-top: 2rem; } */
 
-#top-article .top-article-image { overflow: hidden; max-height: 66vh; }
+#top-article .top-article-image { overflow: hidden; max-height: 66vh; width:100%;}
 h4.highlighted-article-title { font-size: 1.2rem; font-weight: 600;}
 #category-articles h4.highlighted-article-title { margin-top: .5rem;}
 h4.article-title { font-size: 1rem; font-weight: 600;}
@@ -53,6 +53,7 @@ div.highlighted-articles {
     margin-top: -.3rem;
  }
 </style>
+
 <main id="main" class="site-main container" role="main">
 	<div class="row">
 		<div id="main-article-list" class="hidden-sm-down col-sm-12 col-md-9">
@@ -71,9 +72,16 @@ div.highlighted-articles {
 									) );
 						while ($query->have_posts()) : $query->the_post();
 							if ( has_post_thumbnail() ) : ?>
-								<div class="top-article-image">
+								<div class="top-article-image" style="width:480px;">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail( 'medium-large', array( 'class' => 'featured' ) ); ?>
+										<?php //the_post_thumbnail( 'medium-large', array( 'class' => '' ) ); ?>
+										<img 
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
+										data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_800/w_480,c_crop,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+										class="lazyload"
+										width="480"
+										alt=""
+										/>										
 									</a>
 								</div>
 							<?php endif; ?>
@@ -98,7 +106,14 @@ div.highlighted-articles {
 							<?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?>
 								<div class="col-4 flex-last text-right">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'featured' ) );	?>
+										<?php //the_post_thumbnail( 'thumbnail', array( 'class' => 'featured' ) );	?>
+										<img 
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
+										data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_125,w_125,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+										class="thumbnail lazyload" 
+										height="125" width="125"
+										alt=""
+										/>
 									</a>
 								</div>
 							<?php endif; ?>
@@ -137,7 +152,7 @@ div.highlighted-articles {
 
 
 			<!-- ************** -->
-			<!-- +Articles by Category, done vertically by categories -- hidden on smaller screens --> 
+			<!-- +Articles by Category, done vertically by categories - hidden on smaller screens --> 
 			<section id="category-articles" class="row hidden-sm-down">
 			  <div class="col-12"><!-- column that acts as a container for nesting our columne 
 			  						   note: we do it this way so the graphical versions at the top 
@@ -160,7 +175,14 @@ div.highlighted-articles {
 							if ( has_post_thumbnail() ) : ?>
 								<div style="overflow: hidden;">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
+										<?php //the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
+										<img 
+											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
+											data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_320,w_{width},c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+											data-sizes="auto"
+											class="lazyload"
+											height="320"
+											alt="" />										
 									</a>
 								</div>
 							<?php endif; ?>
@@ -186,7 +208,14 @@ div.highlighted-articles {
 							if ( has_post_thumbnail() ) : ?>
 								<div style="overflow: hidden;">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
+										<?php //the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
+										<img 
+											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
+											data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_320,w_{width},c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+											data-sizes="auto"
+											class="lazyload"
+											height="320"
+											alt="" />										
 									</a>
 								</div>
 							<?php endif; ?>
@@ -212,7 +241,14 @@ div.highlighted-articles {
 							if ( has_post_thumbnail() ) : ?>
 								<div style="overflow: hidden;">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
+										<?php //the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
+										<img 
+											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
+											data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_320,w_{width},c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+											data-sizes="auto"
+											class="lazyload"
+											height="320"
+											alt="" />										
 									</a>
 								</div>
 							<?php endif; ?>

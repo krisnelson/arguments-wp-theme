@@ -25,6 +25,9 @@ if( is_singular() ) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <?php wp_head(); ?>
+<?php if ( !is_singular() ): // allow lazyloading for listings, but not regular pages ?>
+<script data-cfasync="false" src="http://cdn.jsdelivr.net/g/lazysizes(lazysizes.min.js+plugins/rias/ls.rias.min.js)" async=""></script>
+<?php endif; ?>
 </head>
 
 
