@@ -26,8 +26,10 @@
 			margin-bottom: 3rem;
 		}
 	}
-	<?php // establish the background urls to stick into our media queries 
-	// sizes of images we're using: 1800w, 1200w, 800w, 500w	
+	<?php 
+	// establish the background urls to stick into our media queries 
+	// sizes of images we are using: 1800w, 1200w, 800w, 500w	
+	// ... and then 1800x440, 1200x440, 800x352, 500x220
 	// aka featured-small, -medium, -large, -giant and thumbnail (150x150)
 	// use the featured/thumbnail if available 
 	// .... and yes, this does seem overly complicated!
@@ -38,16 +40,24 @@
 	}
 	// Now get the URLs
 	if ( $thumb_id ) { 
-			$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-giant', true);
-			$giant=$thumbsrc[0];
-			$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-large', true);
-			$large=$thumbsrc[0];
-			$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-medium', true);
-			$medium=$thumbsrc[0];
-			$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-small', true);
-			$small=$thumbsrc[0];
+			//$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-giant', true);
+			//$giant=$thumbsrc[0];
+			//$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-large', true);
+			//$large=$thumbsrc[0];
+			//$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-medium', true);
+			//$medium=$thumbsrc[0];
+			//$thumbsrc=wp_get_attachment_image_src($thumb_id, 'featured-small', true);
+			//$small=$thumbsrc[0];
 			$thumbsrc=wp_get_attachment_image_src($thumb_id, 'thumbnail'); // default WP thumbnail
 			$thumbnail=$thumbsrc[0];
+			
+			// use Cloudinary instead
+			$thumbsrc=wp_get_attachment_image_src($thumb_id, 'full'); // uncropped, full size image URL
+			$full=$thumbsrc[0];
+			$giant = "https://images.inpropriapersona.com/h_800/w_1800,h_440,q_auto,f_auto,c_crop,g_auto/" . $full;
+			$large = "https://images.inpropriapersona.com/h_800/w_1200,h_440,q_auto,f_auto,c_crop,g_auto/" . $full;
+			$medium = "https://images.inpropriapersona.com/h_700/w_800,h_352,q_auto,f_auto,c_crop,g_auto/" . $full;
+			$small = "https://images.inpropriapersona.com/h_600/w_500,h_220,q_auto,f_auto,c_crop,g_auto/" . $full;			
 	}	
 	/* oddly, since get_post_thumbnail_id returns TRUE for some kinds of
 	   pages (like category listings? maybe others) we have to throw it away in

@@ -72,12 +72,12 @@ div.highlighted-articles {
 									) );
 						while ($query->have_posts()) : $query->the_post();
 							if ( has_post_thumbnail() ) : ?>
-								<div class="top-article-image" style="width:480px;">
+								<div class="top-article-image">
 									<a href="<?php the_permalink(); ?>">
 										<?php //the_post_thumbnail( 'medium-large', array( 'class' => '' ) ); ?>
 										<img 
-										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
-										data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_800/w_480,c_crop,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+										src="<?php the_post_thumbnail_url('thumbnail'); ?>"
+										data-src="https://images.inpropriapersona.com/h_800/w_480,q_auto,f_auto,c_crop,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
 										class="lazyload"
 										width="480"
 										alt=""
@@ -109,7 +109,7 @@ div.highlighted-articles {
 										<?php //the_post_thumbnail( 'thumbnail', array( 'class' => 'featured' ) );	?>
 										<img 
 										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
-										data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_125,w_125,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+										data-src="https://images.inpropriapersona.com/h_125,w_125,q_auto,f_auto,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
 										class="thumbnail lazyload" 
 										height="125" width="125"
 										alt=""
@@ -178,7 +178,7 @@ div.highlighted-articles {
 										<?php //the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
 										<img 
 											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
-											data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_320,w_{width},c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+											data-src="https://images.inpropriapersona.com/h_320,w_{width},q_auto,f_auto,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
 											data-sizes="auto"
 											class="lazyload"
 											height="320"
@@ -211,7 +211,7 @@ div.highlighted-articles {
 										<?php //the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
 										<img 
 											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
-											data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_320,w_{width},c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+											data-src="https://images.inpropriapersona.com/h_320,w_{width},q_auto,f_auto,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
 											data-sizes="auto"
 											class="lazyload"
 											height="320"
@@ -244,7 +244,7 @@ div.highlighted-articles {
 										<?php //the_post_thumbnail( 'featured-small', array( 'class' => 'featured-small' ) ); ?>
 										<img 
 											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
-											data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_320,w_{width},c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+											data-src="https://images.inpropriapersona.com/h_320,w_{width},q_auto,f_auto,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
 											data-sizes="auto"
 											class="lazyload"
 											height="320"

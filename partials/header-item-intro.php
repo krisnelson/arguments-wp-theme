@@ -12,13 +12,7 @@
 <section id="intro" class="container">
   <div class="row">
 	<div class="col-12">
-		<p class="h2"><?php the_title(); ?></p><?php // don't repeat the title on small screens ?>
-		<!-- series information, if present -->
-		<?php //if (function_exists('wp_seriesmeta_write') ) : ?>
-			<?php //if ( in_series() ): ?>
-				<!-- <p><?php //echo wp_seriesmeta_write(); ?></p> -->
-			<?php //endifl ?>
-		<?php //endif; ?>
+		<p class="h2"><?php the_title(); ?></p>l ?>
 
 		<?php // only show the intro paragraph if it isn't too similar to the first paragraph of the article ?>
 		<?php if ($similarPct < 66) : ?>

@@ -16,7 +16,7 @@
 			<?php //the_post_thumbnail( 'thumbnail', array('class' => 'thumbnail') ); ?>
 			<img 
 				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAX0lEQVQoU52Q0QnAMAhEdQxdw/03SMYwbtFUC6HSliD1x+N4nHjYWptEBLsxM0BVPVygiHyyvXdg5nmBLjCMJ7w8D7rBiMtw1i9wwbFz+n+wdLr0TKmeKNzr2RY+xoATAmFuUbQap5IAAAAASUVORK5CYII="
-				data-src="https://res.cloudinary.com/krisnelson/image/fetch/h_600/h_180,w_150,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
+				data-src="https://images.inpropriapersona.com/h_600/h_180,w_150,q_auto,f_auto,c_thumb,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
 				class="thumbnail lazyload" 
 				height="180" width="150"
 				alt=""

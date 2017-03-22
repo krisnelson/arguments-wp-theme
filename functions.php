@@ -154,6 +154,8 @@ add_action( 'widgets_init', 'arguments_widgets_init' );
  * Enqueue scripts and styles.
  */
 function arguments_scripts() {
+	wp_enqueue_script( 'lazysizes-rias', get_template_directory_uri() . '/assets/lazysizes.rias.min.js', array(), '3.0.0', true );
+
     wp_enqueue_style( 'arguments-bootstrap',  
     	get_stylesheet_directory_uri() . 
     	'/assets/bootstrap-4.0.0-alpha.6/dist/css/bootstrap.min.css', '', '4a6.8' );	
