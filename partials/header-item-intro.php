@@ -1,36 +1,4 @@
 <!-- "intro" material that follows the image -->
-<style>
-	#intro { margin-bottom: -2em; }
-	#intro-byline { 
-	    margin-top: -0.5rem;
-		margin-bottom: 2rem;
-		padding-bottom: 2rem;
-		border-bottom: 1px solid rgba(85, 74, 69, 0.2);
-	}
-</style>
-
-<section id="intro" class="container">
-  <div class="row">
-	<div class="col-12">
-		<p class="h2"><?php the_title(); ?></p>l ?>
-
-		<?php // only show the intro paragraph if it isn't too similar to the first paragraph of the article ?>
-		<?php if ($similarPct < 66) : ?>
-			<p class="lead">
-				<?php echo wptexturize( strip_tags( get_the_excerpt(), '<a><strong><em>') ); ?>
-			</p>
-		<?php endif; ?>
-	</div><!-- /.col -->
-  </div><!-- /.row -->
-  <div id="intro-byline" class="row">
-  	<div class="byline sans-serif col-12">
-		<em>By</em> <a class="text-uppercase" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a> 
-		<em>in</em>
-		<time class="byline text-uppercase"><?php the_date('F Y'); ?></time></div>
-  </div><!-- /.row -->
-</section>
-
-
 <?php
 // we only show the "lead in" paragraph if it is substantially different
 // from the post excerpt
@@ -64,4 +32,52 @@ $theContentFirstPart = fixTextForComparison( $theContentFirstPart );
 
 // calculate similarity and save as "$similarPct"
 similar_text($theContentFirstPart, $theExcerpt, $similarPct);
+if ( $similarPct < 66) { $show_excerpt = true; }
+// and check if there's a post thumbnail/featured image
+$show_featured = has_post_thumbnail( get_the_ID() );
 ?>
+
+
+<style>
+	/* #intro { margin-bottom: -2em; }
+	#intro-byline { 
+	    margin-top: -0.5rem;
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgba(85, 74, 69, 0.2);
+	} */
+	section#intro { 
+		margin-bottom: 0;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgba(85, 74, 69, 0.2);
+	}
+	section#intro #intro-byline { margin-top: -0.5rem; }
+</style>
+
+<section id="intro" class="container">
+  <div class="row">
+	<div class="col-12">
+		<?php if ( $show_featured ) : // only show the title if there's a featured image above ?>
+			<p class="h2"><?php the_title(); ?></p>
+		<?php endif; ?>
+
+		<?php // only show the intro paragraph if it isn't too similar to the first paragraph of the article ?>
+		<?php if ( $show_excerpt ) : ?>
+			<p class="lead">
+				<?php echo wptexturize( strip_tags( get_the_excerpt(), '<a><strong><em>') ); ?>
+			</p>
+		<?php endif; ?>
+	</div><!-- /.col -->
+  </div><!-- /.row -->
+  
+  <?php if ( $show_featured and $show_excerpt ) : ?>
+	  <div id="intro-byline" class="row">
+		<div class="byline sans-serif col-12">
+			<em>By</em> <a class="text-uppercase" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a> 
+			<em>in</em>
+			<time class="byline text-uppercase"><?php the_date('F Y'); ?></time></div>
+	  </div><!-- /.row -->
+  <?php endif; ?>
+</section>
+
+
