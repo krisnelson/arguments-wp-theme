@@ -89,7 +89,11 @@ div.highlighted-articles {
 								<?php displayPostCategories($post->ID); ?> 
 							</div>
 							<h4 class="highlighted-article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-							<p class="byline">By <a class="" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a></p>
+							<p class="byline">By <a class="" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a>
+									&bull; 
+									<?php  $content = strip_tags( get_the_content('', true) );
+									echo getEstimatedReadingTime( $content ); ?> min read
+							</p>
 						<?php $check_for_duplicate_posts[] = $post->ID;
 						 		endwhile; wp_reset_postdata(); // Restore original Post Data ?>
 					</div><!-- /.row /#top-article --> 
@@ -123,7 +127,11 @@ div.highlighted-articles {
 								</div>
 								<h4 class="article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 								<!-- <p class="byline">By <a class="" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a></p>-->
-								<p class="byline"><?php the_date('F Y'); ?></p>
+								<p class="byline"><?php the_date('F Y'); ?>
+									&bull; 
+									<?php  $content = strip_tags( get_the_content('', true) );
+									echo getEstimatedReadingTime( $content ); ?> min read
+								</p>
 							</div>
 						</div><!-- /.row /.highlighted-articles-->
 					<?php $check_for_duplicate_posts[] = $post->ID;
@@ -188,7 +196,11 @@ div.highlighted-articles {
 							<?php endif; ?>
 							<h4 class="highlighted-article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							<!-- <p class="byline">By <a class="" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a></p> -->
-							<p class="byline"><?php the_date('F Y'); ?></p>
+							<p class="byline"><?php the_date('F Y'); ?>
+								&bull; 
+								<?php  $content = strip_tags( get_the_content('', true) );
+									echo getEstimatedReadingTime( $content ); ?> min read
+							</p>
 						<?php $check_for_duplicate_posts[] = $post->ID;
 						 		endwhile; wp_reset_postdata(); // Restore original Post Data ?>
 					</div><!-- /.col -->
@@ -221,7 +233,11 @@ div.highlighted-articles {
 							<?php endif; ?>
 							<h4 class="highlighted-article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							<!-- <p class="byline">By <a class="" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a></p> -->
-							<p class="byline"><?php the_date('F Y'); ?></p>
+							<p class="byline"><?php the_date('F Y'); ?>
+									&bull; 
+									<?php  $content = strip_tags( get_the_content('', true) );
+									echo getEstimatedReadingTime( $content ); ?> min read
+							</p>
 						<?php $check_for_duplicate_posts[] = $post->ID;
 						 		endwhile; wp_reset_postdata(); // Restore original Post Data ?>
 					</div><!-- /.col -->
@@ -254,7 +270,11 @@ div.highlighted-articles {
 							<?php endif; ?>
 							<h4 class="highlighted-article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							<!-- <p class="byline">By <a class="" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a></p> -->
-							<p class="byline"><?php the_date('F Y'); ?></p>
+							<p class="byline"><?php the_date('F Y'); ?>
+									&bull; 
+									<?php  $content = strip_tags( get_the_content('', true) );
+									echo getEstimatedReadingTime( $content ); ?> min read
+							</p>
 						<?php $check_for_duplicate_posts[] = $post->ID;
 						 		endwhile; wp_reset_postdata(); // Restore original Post Data ?>
 					</div><!-- /.col -->
@@ -401,8 +421,12 @@ function displayPostsBy($type, $name, $num_results) {
               // Contents of the queried post results go here.
               echo '<h4 class="article-title-smaller line-above"><a href="' . get_the_permalink() .'" rel="bookmark">' 
                 . get_the_title() .'</></h4>';
-              echo 	'<p class="byline">'. get_the_date('F Y') . '</p>';
-
+              echo 	'<p class="byline">'. get_the_date('F Y');
+ 			  echo  ' &bull; '; 
+			  $content = strip_tags( get_the_content('', true) );
+			  echo getEstimatedReadingTime( $content ); 
+			  echo ' min read';
+			  echo '</p>';
           }
       }
       // Restore original post data.

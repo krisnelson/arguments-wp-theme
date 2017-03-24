@@ -27,5 +27,9 @@
 	</div>
 	<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 	<!-- <p class="byline">By <a class="" href="<?php //echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php //echo get_the_author(); ?></a></p>-->
-	<p class="byline sans-serif"><?php the_date('F Y'); ?></p>
+	<p class="byline sans-serif"><?php the_date('F Y'); ?>
+		&bull; 
+		<?php  $content = strip_tags( get_the_content('', true) );
+			echo getEstimatedReadingTime( $content ); ?> min read	
+	</p>
 </article><!-- /.col -->
