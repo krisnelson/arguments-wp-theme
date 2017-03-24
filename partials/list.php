@@ -10,7 +10,22 @@
 ?>
 <!-- TEMPLATE list.php -->
 <article id="post-<?php the_ID(); ?>" <?php post_class('list'); ?> >
-	<div class="byline text-right sans-serif"><?php the_date('F Y'); ?></div>
+	<div class="byline text-right sans-serif">
+		<?php the_date('F Y'); ?> 
+		&bull; 
+		<?php  $content = strip_tags( get_the_content('', true) );
+			echo getEstimatedReadingTime( $content ); ?> min read
+		<!--
+		&bull; at modified estimated rate of 
+		<?php echo round( 275 * (6 / calculate_flesch_grade($content)) ); ?> wpm		
+		&bull;
+		<?php echo round( calculate_flesch($content) ) . '% &bull; ' . round( calculate_flesch_grade($content) ) . 'th grade'; ?>
+		&bull;
+		<?php echo "Avg W in a Sent: " . ( average_words_sentence($content) ); ?>
+		&bull;
+		<?php echo "Avg Syll per W: " . ( average_syllables_word($content) ); ?>
+		-->
+	</div>
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php the_permalink(); ?>">
 			<?php //the_post_thumbnail( 'thumbnail', array('class' => 'thumbnail') ); ?>
