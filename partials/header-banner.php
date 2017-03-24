@@ -47,7 +47,7 @@
 		if ( has_site_icon() ) :
 			//if (class_exists('Jetpack_Photon') ) { $photon_removed = remove_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ) ); } 
 		?>
-			<a href="<?= esc_url(home_url('/')); ?>"><img height="150" width="150" src="https://images.inpropriapersona.com/h_150,w_150,q_auto,f_auto/<?php site_icon_url() ?>" 
+			<a href="<?= esc_url(home_url('/')); ?>"><img height="150" width="150" src="https://images.inpropriapersona.com/h_150,w_150,q_auto,f_auto/<?php site_icon_url(); ?>" 
 				alt="<?php bloginfo('name'); ?>" /></a>
 		<?php
 			//if ( $photon_removed ) { add_filter( 'image_downsize', array( Jetpack_Photon::instance(), 'filter_image_downsize' ), 10, 3 ); }

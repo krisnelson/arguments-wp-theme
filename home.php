@@ -76,7 +76,7 @@ div.highlighted-articles {
 									<a href="<?php the_permalink(); ?>">
 										<?php //the_post_thumbnail( 'medium-large', array( 'class' => '' ) ); ?>
 										<img 
-										src="<?php the_post_thumbnail_url('thumbnail'); ?>"
+										src="https://images.inpropriapersona.com/q_auto,f_auto/<?php the_post_thumbnail_url('thumbnail'); ?>"
 										data-src="https://images.inpropriapersona.com/h_800/w_480,q_auto,f_auto,c_crop,g_auto:faces/<?php the_post_thumbnail_url('full'); ?>"
 										class="lazyload"
 										width="480"
