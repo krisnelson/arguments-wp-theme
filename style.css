@@ -49,9 +49,9 @@ blockquote {
 /* allow for a quick line above or below something */
 .line-above { border-top: 1px solid rgba(85, 74, 69, 0.2); }
 .line-below { border-bottom: 1px solid rgba(85, 74, 69, 0.2); }
-/* "byline" is also used for date elements in article and article listings */
-.byline,
-	.byline a {
+/*  also used for date elements in article and article listings */
+.byline, .byline a,
+  .date, .date a {
 	color: rgba(85,74,69,.66);
 	font-size: 0.6rem;
 	letter-spacing: .02rem;
@@ -108,7 +108,8 @@ article.list .categories a,
 	article.list-compact .categories a {
 	color: rgba(85,74,69,.66);
 }
-article.list .byline {
+article.list .byline,
+article.list .date {
 	color: rgba(85,74,69,.66);
 	font-size: 0.6rem;
 	letter-spacing: .04rem;
@@ -116,7 +117,8 @@ article.list .byline {
 	margin-top: -.3rem;
 	padding-right: 2rem;
 }
-article.list-compact-max .byline {
+article.list-compact-max .byline,
+article.list-compact-max .date {
 	color: rgba(85,74,69,.66);
 	font-size: 0.6rem;
 	letter-spacing: .04rem;

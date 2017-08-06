@@ -28,7 +28,7 @@
 	/* **** */
 	#banner .single-title { margin-top: -1.5rem; }
 
-	#banner time.byline {
+	#banner time.date {
 		margin-bottom: -0.5rem;
 		text-transform: uppercase;
 	}
@@ -56,7 +56,7 @@
 	<div id="header-title" class="col-sm-12 col-md-8">
 		<?php if( is_single() ): // single posts only ?>
 			<div class="single-title">
-				<time class="byline updated" datetime="<?= get_post_time('c', true); ?>"><?= get_the_date(); ?></time>
+				<time class="date updated" datetime="<?= get_post_time('c', true); ?>"><?= get_the_date(); ?></time>
 				<?php the_title('<h2 class="display-strong-title">', '</h2>'); // so just show the title ?>
 				<a class="byline" href="<?= get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author">
 					by <?= get_the_author(); ?></a>

@@ -69,6 +69,6 @@ if( is_singular() ) {
 <?php get_template_part( 'partials/header', 'nav' ); ?>
 <?php get_template_part( 'partials/header', 'banner' ); ?>
 <?php if ( is_singular() || is_404() ) { get_template_part( 'partials/header', 'featured-image' ); } ?>
-<?php if ( is_singular() ) { get_template_part( 'partials/header', 'item-intro' ); } ?>
+<?php if ( is_single() ) { get_template_part( 'partials/header', 'item-intro' ); } ?>
 <?php wp_reset_query(); // reset the query since we may have accessed current post info outside of the regular loop and now need to go back again ?>
  

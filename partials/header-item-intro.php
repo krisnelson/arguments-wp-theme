@@ -32,6 +32,7 @@ $theContentFirstPart = fixTextForComparison( $theContentFirstPart );
 
 // calculate similarity and save as "$similarPct"
 similar_text($theContentFirstPart, $theExcerpt, $similarPct);
+$show_excerpt = false; 
 if ( $similarPct < 66) { $show_excerpt = true; }
 // and check if there's a post thumbnail/featured image
 $show_featured = has_post_thumbnail( get_the_ID() );
@@ -75,7 +76,7 @@ $show_featured = has_post_thumbnail( get_the_ID() );
 		<div class="byline sans-serif col-12">
 			<em>By</em> <a class="text-uppercase" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a> 
 			<em>in</em>
-			<time class="byline text-uppercase"><?php the_date('F Y'); ?></time>
+			<time class="date text-uppercase"><?php the_date('F Y'); ?></time>
 				&bull; 
 				<?php  $content = strip_tags( get_the_content('', true) );
 				echo getEstimatedReadingTime( $content ); ?> min read
