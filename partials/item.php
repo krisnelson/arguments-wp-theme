@@ -27,11 +27,6 @@
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'arguments' ), array( 'span' => array( 'class' => array() ) ) ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
-			//if ( is_page() ) { echo get_the_content(); }
-			//if ( is_page() ) { 
-			//	global $wp_filter; 
-			//	echo "<pre>"; print_r($wp_filter['the_content'], false); echo "</pre>";
-			//}
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'arguments' ),
 				'after'  => '</div>',
